@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UZXTECH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!doctype html>
+<html lang="en">
+ 
+  <body>
+<nav class="navbar">
+      <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1>
+      <button class="menu-toggle-btn" id="menuToggleBtn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+      <section class="link" id="navLinks">
+        <div class="dropdown">
+          <button class="dropbtn">Kinoteatrlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/location.html" onclick="filtrlaKinolar('popular')">Smart Cinema Locator</a>
+            
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Filmlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/popular.html" onclick="filtrlaKinolar('popular')">Ommabop filmlar</a>
+            <a href="../../page/others/now_playing.html" onclick="filtrlaKinolar('now_playing')">Kinoteatrlarda</a>
+            <a href="../../page/others/upcoming.html" onclick="filtrlaKinolar('upcoming')">Kutilayotgan premyeralar</a>
+            <a href="../../page/others/top_rated.html" onclick="filtrlaKinolar('top_rated')">Eng yuqori reytingli</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Telekoʻrsatuvlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/popular_series.html" onclick="filtrlaSeriallar('popular')">Ommabop seriallar</a>
+            <a href="../../page/others/airing_today.html" onclick="filtrlaSeriallar('airing_today')">Bugun efirda</a>
+            <a href="../../page/others/on_tv.html" onclick="filtrlaSeriallar('on_tv')">Televideniyeda</a>
+            <a href="../../page/others/top_rated_series.html" onclick="filtrlaSeriallar('top_rated')">Top seriallar</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Ijodkorlar / Aktyorlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/actors.html" onclick="yuklaAktyorlar()">Mashhur aktyorlar</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Mukofotlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/oscar.html" onclick="filtrlaMukofotlar('oscar')">Oskar sovrindorlari</a>
+            <a href="../../page/others/festivals.html" onclick="filtrlaMukofotlar('festival')">Kino festivallar</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+        <button class="dropbtn">Yana</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/forum.html" onclick="ochForum()">Munozaralar / Forum</a>
+            <a href="../../page/others/leaderboard.html">Peshqadamlar roʻyxati</a>
+            <a href="../../page/others/help.html" onclick="ochYordam()">Yordam / Qoʻllab-quvvatlash</a>
+            <a href="../../page/others/api.html" onclick="ochApiDocs()">API Hujjatlari</a>
+            <a href="" onclick="ochApiBusiness()">Biznes uchun API</a>
+            <a href="../../page/others/Xarita.html" onclick="ochApiBusiness()">Xarita</a>
+            <a href="../../page/others/platforma.html" onclick="ochApiBusiness()">bizning jamiyatga qo'shiling</a>
+          </div>
+           <div class="login-join-search">
+         
+        </div>
+        </div>
+        <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Bosh sahifa</button>
+
+      </section>
+      
+      </nav>
+            <div class="header-action-group">
+             
+                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Home</button>
+              
+            </div>
+        </header><br>
+
+        <main class="main-content-area">
+            <div id="boshSahifaBloki">
+                <div class="story-carousel-container" id="storyContainer">
+                    <div id="storyCarousel" class="story-carousel"></div>
+                </div>
+
+                <div class="search-banner-container" id="dynamicBanner">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <div class="main-search-wrapper">
+                            <div class="main-search-box">
+                                <input type="text" id="kinoInput" placeholder="Film, teleko‘rsatuv qidirish (Masalan: Avatar, Inception)..." autocomplete="off">
+                                   <button id="ovozliQidiruvTugmasi" title="Ovozli qidiruv">
+        <i class="fa-solid fa-microphone"></i>
+    </button>
+                                <button id="qidirishTugmasi">Search</button>
+                            </div>
+                            <div id="liveSearchDropdown" class="live-search-dropdown hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            <section class="apple-tv-slider">
+                <div class="slider-wrapper" id="appleTvWrapper"></div>
+                <div class="slider-navigation-bar">
+                    <div class="slider-meta-info">
+                        <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
+                        <p id="activeSlideDesc">Iltimos kuting...</p>
+                        <button class="apple-trial-btn" id="activeSlideBtn">Bepul sinab ko'rish</button>
+                    </div>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </section>
+                <div class="genre-filter-container">
+                    <button class="genre-btn active" data-genre="all">Barchasi</button>
+                    <button class="genre-btn" data-genre="Action">Action</button>
+                    <button class="genre-btn" data-genre="Sci-Fi">Sci-Fi</button>
+                    <button class="genre-btn" data-genre="Drama">Drama</button>
+                    <button class="genre-btn" data-genre="Comedy">Comedy</button>
+                    <button class="genre-btn" data-genre="Thriller">Thriller</button>
+                </div>
+
+                <div class="main-layout">
+                    <section class="left-content">
+                        <h2 class="section-title" id="blockTitle">Mashhur Premyeralar</h2>
+                        <div id="kinoGrid" class="kino-grid"></div>
+                    </section>
+
+                    <aside class="right-sidebar">
+                        <div class="sidebar-card">
+                            <h3 class="sidebar-title">Tasodifiy Premyera</h3>
+                            <div id="reklamaKino" class="random-reklama-box"></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <div id="kinoIchkiSahifa" class="movie-detail-page hidden"></div>
+
+            <div id="profilSahifaBloki" class="profile-page-wrapper hidden">
+                <div class="user-hero-card">
+                    <div class="avatar-zone" id="userAvatar" title="Avatarni o'zgartirish" style="cursor: pointer;">U</div>
+                    <div class="user-text-meta">
+                        <h2 class="username" id="displayUsername">Foydalanuvchi <span class="edit-icon">✏️</span></h2>
+                        <p class="uid-text" id="displayUid">uid: 24095</p>
+                    </div>
+                </div>
+
+                <div class="letterboxd-tabs">
+                    <button class="tab-btn active" id="tab-liked" onclick="switchProfileTab('liked-pane', 'tab-liked')">❤ Sevimli filmlar</button>
+                    <button class="tab-btn" id="tab-watchlist" onclick="switchProfileTab('watchlist-pane', 'tab-watchlist')">⏳ Watchlist</button>
+                    <button class="tab-btn" id="tab-watched" onclick="switchProfileTab('watched-pane', 'tab-watched')">👁️ Ko'rib bo'linganlar</button>
+                </div>
+
+                <div class="tabs-content-wrapper">
+                    <div id="liked-pane" class="tab-panel-item">
+                        <h3 class="panel-title" id="likedCount">Sevimli filmlar (0 ta)</h3>
+                        <div id="likedGrid" class="movies-flex-grid"></div>
+                    </div>
+
+                    <div id="watchlist-pane" class="tab-panel-item hidden">
+                        <h3 class="panel-title" id="watchlistCount">Keyinroq ko'rish (0 ta)</h3>
+                        <div id="watchlistGrid" class="movies-flex-grid"></div>
+                    </div>
+
+                    <div id="watched-pane" class="tab-panel-item hidden">
+                        <h3 class="panel-title" id="watchedCount">Ko'rilgan filmlar (0 ta)</h3>
+                        <div id="watchedGrid" class="movies-watched-detailed-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+    <main class="results-container" id="resultsArea">
+        <h2 class="sec-title">Sizga Eng Yaqin Kinoteatrlar Ketma-ketligi</h2>
+        
+        <div class="app-layout">
+            <div class="cinema-list" id="cinemaHtmlList"></div>
+
+            <div class="details-panel" id="detailsPanel">
+                <div class="empty-state">Batafsil ma'lumot va soniyali taymerni ko'rish uchun chap tomondan xohlagan kinoteatringizni tanlang.</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="TIME.js"></script>
+    <script>
+    
+        let currentSub = 0;
+        const subs = document.querySelectorAll('.subtitle');
+        const dots = document.querySelectorAll('.dot');
+        
+        function switchSub(index) {
+            subs[currentSub].classList.remove('active-sub');
+            dots[currentSub].classList.remove('active-dot');
+            currentSub = index;
+            subs[currentSub].classList.add('active-sub');
+            dots[currentSub].classList.add('active-dot');
+        }
+
+        setInterval(() => {
+            let next = (currentSub + 1) % subs.length;
+            switchSub(next);
+        }, 5000);
+    </script>
+    <div class="cinema-main-wrapper">
+     
+        </main>
+    </div>
+
+    <div id="loginModalBloki" class="login-modal-wrapper hidden">
+        <div class="login-card animate-form">     
+            <span class="close-modal-btn" onclick="yopishLoginModal()">×</span>
+            <h2 id="loginFormTitle">Tizimga Kirish</h2>
+            <br>
+            <form id="authForm" onsubmit="avtorizatsiyaTizimi(event)">
+                <div class="input-group">
+                    <label>Email manzilingiz</label>
+                    <input type="email" id="authEmail" placeholder="example@mail.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Maxfiy parol</label>
+                    <input type="password" id="authParol" placeholder="••••••••" required>
+                </div>
+                <button type="submit" id="authSubmitBtn" class="auth-main-btn">Kirish</button>
+            </form>
+          
+        </div>
+    </div>
+
+    <div id="avatarModalBloki" class="login-modal-wrapper hidden">
+        <div class="login-card animate-form" style="max-width: 500px;">
+            <span class="close-modal-btn" onclick="document.getElementById('avatarModalBloki').classList.add('hidden')">×</span>
+            <h2>Avatar Tanlang</h2>
+            <p class="login-subtitle" style="margin-bottom: 20px;">O'zingizga yoqqan kino personajini profil rasmi qiling:</p>
+            <div class="avatar-selection-grid" id="avatarSelectionGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollZone = document.querySelector('.scroll-zone');
+            const innerPage = document.querySelector('.inner-page');
+            if(!scrollZone || !innerPage) return;
+            const rect = scrollZone.getBoundingClientRect();
+            const zoneHeight = rect.height - window.innerHeight;
+            const scrolled = -rect.top;
+            let progress = scrolled / zoneHeight;
+            if (progress < 0) progress = 0;
+            if (progress > 1) progress = 1;
+            let scaleValue;
+            let opacityValue;
+            let borderRadiusValue;
+            if (progress <= 0.4) {
+                let localProgress = progress / 0.4;
+                scaleValue = 0.82 + (localProgress * 0.18); 
+                opacityValue = 0.4 + (localProgress * 0.6);
+                borderRadiusValue = 40 - (localProgress * 40);
+            } 
+            else if (progress > 0.4 && progress <= 0.7) {
+                scaleValue = 1.0;
+                opacityValue = 1.0;
+                borderRadiusValue = 0;
+            } 
+            else {
+                let localProgress = (progress - 0.7) / 0.3;
+                scaleValue = 1.0 - (localProgress * 0.18);
+                opacityValue = 1.0 - (localProgress * 0.6);
+                borderRadiusValue = localProgress * 40;
+            }
+            innerPage.style.transform = `scale(${scaleValue})`;
+            innerPage.style.opacity = opacityValue;
+            innerPage.style.borderRadius = `${borderRadiusValue}px`;
+        });
+    </script>
+
+         
+            <section class="letterboxd-section-wrapper">
+  
+  <div class="letterboxd-movie-grid" id="letterboxdGridContainer"></div>
+
+  <div class="letterboxd-detail-panel" id="letterboxdDetailPanel">
+    <button class="letterboxd-close-panel-btn" id="letterboxdCloseBtn">&times;</button>
+    <div class="letterboxd-panel-flex">
+      <img src="" id="letterboxdPanelPoster" alt="Kino posteri">
+      <div class="letterboxd-panel-body">
+        <h2 id="letterboxdPanelTitle">Film Nomi</h2>
+        <div class="letterboxd-panel-meta">
+          <span id="letterboxdPanelYear">Yil</span> 
+          <span class="letterboxd-divider">|</span> 
+          <i class="fa-solid fa-star"></i> <span id="letterboxdPanelRating">0.0</span>
+        </div>
+        <p id="letterboxdPanelOverview">Film haqida qisqacha syujet va batafsil ma'lumotlar shu yerda taqdim etiladi...</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+
+<div class="cinema-dashboard-root">
+    
+        <div class="cinema-video-container">
+            <video class="cinema-video-bg" autoplay loop muted playsinline poster="../../Assets/plocation.mp4">
+                <source src="../../Assets/plocation.mp4" type="video/mp4">
+            </video>
+            <div class="cinema-video-overlay"></div>
+        </div>
+
+        <div class="cinema-main-wrapper">
+            
+            <header class="cinema-hero-panel">
+                <h1 class="cinema-main-title">Smart Cinema Locator</h1>
+                
+                <div class="cinema-lang-scroller">
+                    <p class="cinema-subtext cinema-active-lang" data-index="0">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang.</p>
+                    <p class="cinema-subtext" data-index="1">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
+                    <p class="cinema-subtext" data-index="2">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
+                    <p class="cinema-subtext" data-index="3">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
+                    <p class="cinema-subtext" data-index="4">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
+                    <p class="cinema-subtext" data-index="5">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
+                </div>
+
+                <div class="cinema-pagination-dots">
+                    <span class="cinema-dot cinema-active-dot" onclick="cinemaJumpToLang(0)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(1)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(2)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(3)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(4)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(5)"></span>
+                </div>
+
+                <button id="cinemaLocBtn" class="cinema-action-btn" onclick="cinemaStartGeolocate()">
+                    <span id="cinemaBtnTxt">Joylashuvni Tasdiqlash</span>
+                    <div class="cinema-spinner" id="cinemaBtnLoader"></div>
+                </button>
+            </header>
+
+            <main class="cinema-dashboard-grid" id="cinemaGridUI">
+                <div class="cinema-list-container" id="cinemaListFeed"></div>
+
+                <div class="cinema-showcase-panel" id="cinemaShowcaseDeck">
+                    <div class="cinema-fallback-text">Seans jadvali va jonli sekundlik hisoblagichni ko'rish uchun chap paneldagi obyektlardan birini tanlang.</div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
+ 
